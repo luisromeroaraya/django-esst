@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Create Note</h1>
+<form action="{% url 'notes.create' %}" method="POST">
+{% csrf_token %}
+    {{ form.as_p }} <!-- as_p cambia el aspecto del formulario agregando <p></p> a cada seccion (Render Django Forms as paragraph) -->
+    <button type="submit" class="btn btn-primary my-5">Submit</button>
+</form>
+{% if form.errors %}
+<div class="alert alert-danger my-5">
+    {{ form.errors.title.as_text }}
+</div>
+{% endif %}
+{% endblock %}
