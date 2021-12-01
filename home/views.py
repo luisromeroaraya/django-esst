@@ -11,7 +11,7 @@ from django.views.generic import TemplateView
 #     return render(request, 'home/welcome.html', {'today': datetime.today()})
 class HomeView(TemplateView):
     template_name = 'home/welcome.html'
-    extra_content = {'today': datetime.today()}
+    extra_context = {'today': datetime.today()}
 
 # @login_required(login_url='/admin')
 # def authorized (request):
@@ -19,6 +19,6 @@ class HomeView(TemplateView):
 
 class AuthorizedView(LoginRequiredMixin, TemplateView):
     template_name = 'home/authorized.html'
-    extra_content = {'today': datetime.today()}
+    extra_context = {'today': datetime.today()}
     login_url = '/admin'
 
