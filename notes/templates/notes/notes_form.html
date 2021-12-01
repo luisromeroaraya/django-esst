@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Create Note</h1>
-<form action="{% url 'notes.create' %}" method="POST">
+<form method="POST">
 {% csrf_token %}
     {{ form.as_p }} <!-- as_p cambia el aspecto del formulario agregando <p></p> a cada seccion (Render Django Forms as paragraph) -->
     <button type="submit" class="btn btn-primary my-5">Submit</button>
@@ -12,4 +12,5 @@
     {{ form.errors.title.as_text }}
 </div>
 {% endif %}
+<a href="{% url 'notes.list' %}" class="btn btn-danger my-5">Cancel</a>
 {% endblock %}
